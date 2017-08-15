@@ -1,6 +1,14 @@
 package com.xbreak.fundamentals.three;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Iterator;
+import java.util.Scanner;
+
+import com.xbreak.util.StdIn;
+
+import edu.princeton.cs.algs4.StdOut;
+
 /**
  * 动态调节的基于数组实现的栈
  * @author XBreak
@@ -61,6 +69,14 @@ public class XResizingArrayStack<Item> implements Iterable<Item> {
 		return N == 0;
 	}
 	
+	/**
+	 * number of items int the stack
+	 * @return
+	 */
+	public int size() {
+		return N;
+	}
+	
 	@Override
 	public Iterator<Item> iterator() {
 		// TODO Auto-generated method stub
@@ -83,8 +99,9 @@ public class XResizingArrayStack<Item> implements Iterable<Item> {
 			return datas[--i];
 		}
 	}
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         XResizingArrayStack<String> stack = new XResizingArrayStack<String>();
+        StdIn.setScanner(new Scanner(new File("tobe.txt")));
         while (!StdIn.isEmpty()) {
             String item = StdIn.readString();
             if (!item.equals("-")) stack.push(item);
