@@ -6,11 +6,12 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import com.xbreak.util.StdIn;
-import com.xbreak.util.StdOut;
+
+import edu.princeton.cs.algs4.StdOut;
 
 /**
+ * 1.3	基于 链表 的队列
  * @author XBreak
- *	基于 链表 的队列
  * @param <Item>
  */
 public class XQueue<Item> implements Iterable<Item> {

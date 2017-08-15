@@ -6,13 +6,14 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import com.xbreak.util.StdIn;
-import com.xbreak.util.StdOut;
+
+import edu.princeton.cs.algs4.StdOut;
 
 /**
- * @author XBreak
  *	
- *	基于 链表 的背包
+ *	1.4	基于 链表 的背包
  *
+ * @author XBreak
  * @param <Item>
  */
 public class XBag<Item> implements Iterable<Item> {

@@ -10,7 +10,7 @@ import com.xbreak.util.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * 动态调节的基于数组实现的栈
+ *1.1 动态调节的基于数组实现的栈
  * @author XBreak
  * @param <Item>
  */

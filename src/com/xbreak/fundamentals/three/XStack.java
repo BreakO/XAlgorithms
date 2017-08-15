@@ -10,8 +10,8 @@ import com.xbreak.util.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
+ * 1.2	基于链表的栈
  * @author XBreak
- *	基于链表的栈
  */
 public class XStack<Item> implements Iterable<Item> {
 	private int N;
