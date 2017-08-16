@@ -1,7 +1,7 @@
 package com.xbreak.sorting.pq;
 
 /**
- * 基于堆的大值优先队列
+ * 2.6 基于堆的大值优先队列
  * @author XBreak
  */
 public class MaxPQ<Key extends Comparable<Key>> {

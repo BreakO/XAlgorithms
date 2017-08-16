@@ -9,7 +9,7 @@ import com.xbreak.sorting.quick.Quick;
 import com.xbreak.util.StdIn;
 
 /**
- * ∂—≈≈–Ú
+ * 2.7∂—≈≈–Ú
  * @author XBreak
  */
 public class Heap extends BaseSort{

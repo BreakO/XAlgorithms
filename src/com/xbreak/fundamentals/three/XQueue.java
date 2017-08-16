@@ -78,12 +78,12 @@ public class XQueue<Item> implements Iterable<Item> {
 	
 	private class MyIterator implements Iterator<Item>{
 
-		Node f = last;
+		Node f = frist;
 		
 		@Override
 		public boolean hasNext() {
 			// TODO Auto-generated method stub
-			return f == null;
+			return f != null;
 		}
 
 		@Override

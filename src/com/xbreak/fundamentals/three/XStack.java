@@ -63,7 +63,7 @@ public class XStack<Item> implements Iterable<Item> {
 		@Override
 		public boolean hasNext() {
 			
-			return n == null;
+			return n != null;
 		}
 
 		@Override

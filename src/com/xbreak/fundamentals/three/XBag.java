@@ -71,7 +71,7 @@ public class XBag<Item> implements Iterable<Item> {
 		
 		@Override
 		public boolean hasNext() {
-			return f == null;
+			return f != null;
 		}
 
 		@Override
