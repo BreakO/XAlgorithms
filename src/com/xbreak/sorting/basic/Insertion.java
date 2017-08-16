@@ -1,4 +1,4 @@
-package com.xbreak.sorting.one;
+package com.xbreak.sorting.basic;
 
 import java.io.File;
 import java.io.FileNotFoundException;
