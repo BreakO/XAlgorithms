@@ -9,6 +9,12 @@ import com.xbreak.util.StdIn;
 
 import edu.princeton.cs.algs4.StdOut;
 
+/**
+ * 基于数组 的二分搜索树
+ * @param <Key>
+ * @param <Value>
+ * @author XBreak
+ */
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	private Key[] keys;
 	private Value[] values;
@@ -26,7 +32,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	}
 	
 	/**
-	 * 求小于k的个数
+	 *  重点方法 : 求小于k的个数
 	 * @param k
 	 * @return 若存在k,则为k的为位置,即小于k的个数, 若不存在,则返回小于k的个数
 	 */
