@@ -1,5 +1,10 @@
 package com.xbreak.graph.undirectedgraph;
 
+import edu.princeton.cs.algs4.Graph;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Queue;
+import edu.princeton.cs.algs4.StdOut;
+
 /**
  * 基于 深搜的 连通分量
  * @author XBreak
@@ -43,4 +48,32 @@ public class CC {
 	public int count() {
 		return count;
 	}
+	
+    public static void main(String[] args) {
+        In in = new In("undigraph.txt");
+        Graph G = new Graph(in);
+        CC cc = new CC(G);
+
+        // number of connected components
+        int m = cc.count();
+        StdOut.println(m + " components");
+
+        // compute list of vertices in each connected component
+        Queue<Integer>[] components = (Queue<Integer>[]) new Queue[m];
+        for (int i = 0; i < m; i++) {
+            components[i] = new Queue<Integer>();
+        }
+        for (int v = 0; v < G.V(); v++) {
+            components[cc.id(v)-1].enqueue(v);
+        }
+
+        // print results
+        for (int i = 0; i < m; i++) {
+            for (int v : components[i]) {
+                StdOut.print(v + " ");
+            }
+            StdOut.println();
+        }
+    }
+	
 }

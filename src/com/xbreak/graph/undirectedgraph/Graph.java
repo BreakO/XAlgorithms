@@ -3,6 +3,7 @@ package com.xbreak.graph.undirectedgraph;
 import com.xbreak.fundamentals.three.XBag;
 
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdOut;
 
 /**
  * 4.1 ÎÞÏòÍ¼
@@ -55,4 +56,22 @@ public class Graph {
 	public int V() {
 		return V;
 	}
+	
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append(V + " vertices, " + E + " edges " + "\n");
+        for (int v = 0; v < V; v++) {
+            s.append(v + ": ");
+            for (int w : adj[v]) {
+                s.append(w + " ");
+            }
+            s.append("\n");
+        }
+        return s.toString();
+    }
+    public static void main(String[] args) {
+        In in = new In("undigraph.txt");
+        Graph G = new Graph(in);
+        StdOut.println(G);
+    }
 }
