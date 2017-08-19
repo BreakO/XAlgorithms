@@ -6,7 +6,7 @@ import com.xbreak.fundamentals.three.XQueue;
 import edu.princeton.cs.algs4.In;
 
 /**
- * 无向有权图
+ * 4.3.2无向有权图
  * @author XBreak
  */
 public class EdgeWeightGraph {

@@ -7,7 +7,7 @@ import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * 延迟实现的 基于 Prim 算法的最小生成树
+ * 4.3 延迟实现的 基于 Prim 算法的最小生成树
  * 	从选定的某点开始,获取邻接边加入最小队列,然后获取最小边,判断是否遍历过,若否,加入最小树并遍历获取邻接边,依次类推,直至队列为空.
  * @author XBreak
  */
