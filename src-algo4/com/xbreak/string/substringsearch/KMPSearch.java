@@ -32,7 +32,7 @@ public class KMPSearch {
 								
 	
 		int i = 0, j = -1;		//i不会回退,j会回退
-		while(i < pat.length()-1) {
+		while(i < pat.length()-1) { //i < pat.length()-1没意义这一位就算是相等,也是next[pat.length()]的值为j,这个没意义
 			/*
 			 * j == -1 : 初始值以及0位置上的值,  j==-1的条件是 j=0,而j=0与当前pat[i],仍不相等,所以,j,i指针进位,next[i]=0;
 			 * pat[i] == pat[j]     前缀子串==后缀子串,j,i进位,二者在原有next值上加一
