@@ -8,10 +8,6 @@ import java.util.Stack;
  * 非递归前中后序遍历二叉树
  * 
  * 思路 : 
- * 	前序 : 利用栈,把根元素入栈,读栈顶元素,查看其左子树是否为空不为空则把其左子树压栈,否则取出栈顶,打印栈顶,若其右子树不为空则压入右子树,以此类推直至栈空
- * 	中序 : 利用栈,把根元素入栈,取出栈顶,打印,查看其左子树是否为空不为空则把其左子树压栈,否则若其右子树不为空则压入右子树,以此类推直至栈空
- * 	后序 : 利用栈,把根元素入栈,读栈顶元素,查看其左子树是否为空不为空则把其左子树压栈,否则若其右子树不为空则压入右子树,若右子树为空则取出栈顶,打印栈顶以此类推直至栈空
- * 
  * @author XBreak
  */
 public class PrintBinaryTreeII {
@@ -28,59 +24,83 @@ public class PrintBinaryTreeII {
 		return arr;
 	}
 	
-	private void preOrder(TreeNode root, List<Integer> list) {
-		
-		Stack<TreeNode> stack = new Stack<TreeNode>();
-		stack.push(root); 
-		TreeNode t = null;
-		while( !stack.isEmpty()) {
-			TreeNode treeNode = stack.peek();
-			if(treeNode.left != null && t != treeNode.left)
-				stack.push(treeNode.left);
-			else {
-				TreeNode p = stack.pop();
-				
-				t = p;
-				list.add(p.val);
-				if(p.right != null)
-					stack.push(p.right);
-			}
-		}
-		
-	}
-	private void inOrder(TreeNode root, List<Integer> list) {
-		Stack<TreeNode> stack = new Stack<TreeNode>();
-		stack.push(root);
+	/**
+	 * 思路 : 利用一个栈, 先把根节点入栈,若栈不为空取出栈顶并打印,若其右子树不为空,右子树入栈,若其左子树不为空,左子树入栈, 以此类推,直至栈空
+	 * @param root
+	 */
+	private void preOrder(TreeNode root, List<Integer> list){
+		Stack<TreeNode> stack = new Stack<>();
+		stack.add(root);
 		while(!stack.isEmpty()) {
-			TreeNode p = stack.pop();
-			list.add(p.val);
-			if(p.left != null) {
-				stack.push(p.left);
-			}else {
-				if(p.right != null)
-					stack.push(p.right);
-			}
+			TreeNode top = stack.pop();
+			list.add(top.val);
+			if(top.right != null)
+				stack.push(top.right);
+			if(top.left != null)
+				stack.push(top.left);
+			
 		}
 	}
-	private void postOrder(TreeNode root, List<Integer> list) {
-		Stack<TreeNode> stack = new Stack<TreeNode>();
+	
+	/**
+	 * 
+	 * 思路 : 维护一个栈和一个cur指针, 初始时cur为root, 	(
+	 * 				则若cur不为空把cur = cur.left,并当cur不为空时cur压栈,
+	 * 				直至cur为空,取出栈顶元素x,把cur设为x.right,重复压入cur,
+	 * 		依次类推,直至栈空,并且cur为空
+	 * 
+	 * @param root
+	 * @param list
+	 */
+	public void inOrder(TreeNode root, List<Integer> list) {
+		
+		Stack<TreeNode> stack = new Stack<>();
+		TreeNode cur= root;
+		stack.push(cur);
+		while(!stack.isEmpty() || cur != null) {
+			
+			if(cur != null ) {
+				cur = cur.left;
+				if(cur != null)
+					stack.push(cur);
+			}else {
+				TreeNode t = stack.pop();
+				list.add(t.val);
+				cur = t.right;
+				if(cur != null)
+					stack.push(cur);
+			}
+		}
+		
+	}
+	/**
+	 * 
+	 * 思路 : 维护一个栈,创建out为最近弹出的节点,top为当前栈顶节点(但不弹出), 
+	 * 		初始时根节点压栈,out为root,判断top的几种情况:
+	 * 			若top.left不为空且out不为top的左右孩子,把top.left入栈
+	 * 			否则, 若top.right不为空, out不为top的右孩子, 把top.right入栈
+	 * 			否则, 把栈顶元素出栈,打印并赋予out;
+	 * 
+	 * @param root
+	 * @param list
+	 */
+	public void postOrder(TreeNode root, List<Integer> list) {
+		Stack<TreeNode> stack = new Stack<>();
 		stack.push(root);
+		TreeNode cur, out = root;
 		while(!stack.isEmpty()) {
-			TreeNode p = stack.peek();
-			if(p.left != null) {
-				stack.push(p.left);
+			cur = stack.peek();
+			if(cur.left != null && cur.left != out && cur.right != out) {
+				stack.push(cur.left);
+			}else if(cur.right != null && cur.right != out) {
+				stack.push(cur.right);
 			}else {
-				if(p.right != null) {
-					stack.push(p.right);
-				}else {
-					TreeNode treeNode = stack.pop();
-					list.add(treeNode.val);
-				}
-					
+				out = stack.pop();
+				list.add(out.val);
 			}
-				
 		}
 	}
+	
 	public static void main(String[] args) {
 		TreeNode r = new TreeNode(1);
 		 r.left = new TreeNode(2);
@@ -92,7 +112,7 @@ public class PrintBinaryTreeII {
 		 List<Integer>[] lists = new PrintBinaryTree().print(r);
 		List<Integer>[] listsII = new PrintBinaryTreeII().print(r);
 		System.out.println(lists[0] + " *** " + listsII[0]);
-		System.out.println(lists[0] + " *** " + listsII[1]);
-		System.out.println(lists[0] + " *** " + listsII[2]);
+		System.out.println(lists[1] + " *** " + listsII[1]);
+		System.out.println(lists[2] + " *** " + listsII[2]);
 	}
 }

@@ -5,6 +5,9 @@ import java.util.List;
 
 /**
  * 递归遍历前中后序遍历二叉树,并装入二维数组
+ * 前中后顺序依照 根节点相对于左右子节点顺序决定
+ * 前序 : 中左右, 中序 : 左中右, 后序 : 左右中
+ * 
  * @author XBreak
  */
 public class PrintBinaryTree {
@@ -17,21 +20,21 @@ public class PrintBinaryTree {
 		postOrderPrint(root, list[2]);
 		return list;
 	}
-	public void preOrderPrint(TreeNode root, List<Integer> list) {
-		
-		if(root == null)
-			return ;
-		preOrderPrint(root.left, list);
-		list.add(root.val);
-		preOrderPrint(root.right, list);
-	}
 	public void inOrderPrint(TreeNode root, List<Integer> list) {
 		
 		if(root == null)
 			return ;
-		list.add(root.val);
 		inOrderPrint(root.left, list);
+		list.add(root.val);
 		inOrderPrint(root.right, list);
+	}
+	public void preOrderPrint(TreeNode root, List<Integer> list) {
+		
+		if(root == null)
+			return ;
+		list.add(root.val);
+		preOrderPrint(root.left, list);
+		preOrderPrint(root.right, list);
 	}
 	public void postOrderPrint(TreeNode root, List<Integer> list) {
 		
