@@ -1,5 +1,7 @@
 package com.xbreak.bat.dp;
 
+import java.util.HashMap;
+
 import org.junit.Test;
 
 /**
@@ -34,6 +36,9 @@ public class BestEdit {
 		for(int i=1; i<= M; i++) {
 			dp[0][i] = ci*i;    //由空串插入为s2的代价
 		}
+
+		String s = "";
+		
 		for(int i=1; i<=N; i++)
 			dp[i][0] = cd * i;	//s1删除为空串的代价
 		for(int i=1; i<= N; i++) {

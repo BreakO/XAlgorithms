@@ -161,6 +161,6 @@ public class CoinFind {
 	}
 	@Test
 	public void test4() {
-		System.out.println(findCoin3(new int[] {5,10,25,1}, 15));
+		System.out.println(findCoin1(new int[] {1,5,10,20,50,100}, 8845));
 	}
 }
