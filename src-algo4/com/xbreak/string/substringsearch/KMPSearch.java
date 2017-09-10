@@ -45,7 +45,6 @@ public class KMPSearch {
 				next[i] = j;
 			}else
 				j = next[j];
-				
 		}
 	}
 	
@@ -74,13 +73,16 @@ public class KMPSearch {
 	}
 	
 	public String getNext() {
+		
 		StringBuilder sb = new StringBuilder();
+		
 		for(int i=0; i<next.length; i++)
 			sb.append(next[i]+" ");
 		return sb.toString();
 	}
 	
 	public static void main(String[] args) {
+		
 		KMPSearch kmp = new KMPSearch("ababcab");
 		System.out.println(kmp.getNext());
 		String src = "cabacababdababcdababcaababcabccc";
