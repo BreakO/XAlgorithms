@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+/**
+ * @author XBreak
+ *	
+ */
 public class TasksScheduler {
 	  public int leastInterval(char[] tasks, int n) {
 	        if(tasks == null || tasks.length == 0)
