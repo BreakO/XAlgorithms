@@ -38,7 +38,6 @@ public class MaxAscendSum {
         	return max;
         }
     	
-    }
     @Test
     public void test1() {
     	int maxProfit = maxSubArray(new int[] {7, 1, 5, 3, 6, 4});
